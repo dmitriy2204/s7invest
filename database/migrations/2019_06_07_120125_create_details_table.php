@@ -18,16 +18,35 @@ class CreateDetailsTable extends Migration
             $table->string('name');
             $table->string('supplier_num');
             $table->string('producer_num');
-            $table->string('serial');
-            $table->string('supplier');
-            $table->string('producer');
+            $table->string('serial')->nullable();
+            $table->string('supplier')->nullable();
+            $table->string('producer')->nullable();
             $table->integer('amount');
-            $table->integer('min_amount');
-            $table->integer('location_id');
-            $table->string('analogues');
-            $table->integer('used');
-            $table->integer('ordered');
+            $table->integer('min_amount')->nullable();
+            $table->string('location_id')->nullable();
+            $table->integer('status')
+                ->unsigned()
+                ->nullable();
+            $table->foreign('status')
+                ->references('id')
+                ->on('statuses')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->integer('type')
+                ->unsigned()
+                ->nullable();
+            $table->foreign('type')
+                ->references('id')
+                ->on('types')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->string('analogues')->nullable();
+            $table->string('comment')->nullable();
+            $table->string('source')->nullable();
+            $table->integer('used')->default(0);
+            $table->integer('ordered')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

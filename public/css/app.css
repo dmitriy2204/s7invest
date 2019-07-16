@@ -45,3 +45,119 @@ html, body {
     border: 1px solid black;
     padding: 5px;
 }
+
+#details {
+    text-align: center;
+    width: 100%;
+}
+#details th, td {
+    border: 2px solid #ddd;
+    padding: 10px;
+}
+
+.dropdown-menu {
+    margin-bottom: 20px;
+}
+
+.dropdown-menu__button {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.dropdown-menu__button span {
+    padding: 10px 5px;
+    border: 2px solid #ccc;
+}
+
+.dropdown-menu__checkboxes {
+    position: absolute;
+    background: #fff;
+    display: none;
+}
+
+.dropdown-menu .menu-group{
+    margin-bottom: 5px;
+}
+
+.dropdown-menu input {
+    display: inline-block;
+}
+
+.dropdown-menu label {
+    display: inline-block;
+}
+
+.table-responsive {
+    overflow-x: scroll;
+}
+
+/* REGISTRATION CARD */
+
+.card {
+    display: flex;
+    justify-content:space-between;
+}
+
+.detail-info {
+    width: 60%;
+}
+
+h2 {
+    font-size: 24px;
+    color: #3498db;
+    text-align: center;
+    margin: 15px 0 20px;
+}
+
+.detail-info__item, .take-detail__item, .put-detail__item, .order-detail__item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail-info__item input, .take-detail__item input, .put-detail__item input, .order-detail__item input, .detail-info__item select {
+    width: 70%;
+    margin: 5px 3px;
+    padding: 5px 5px;
+}
+
+.detail-info__item label, .take-detail__item label, .put-detail__item label, .order-detail__item label {
+    width: 30%;
+}
+
+.detail-photo {
+    width: 30%;
+}
+
+.buttons {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.take-detail, .put-detail, .order-detail {
+    max-width: 60%;
+    margin: 100px auto 0;
+}
+
+.btn {
+    border: 2px solid #3498db;
+    font-weight: bold;
+    background-color: #fff;
+    color: #3498db;
+    padding: 10px 0;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 1px 3px 7px 0px rgba(73, 139, 250, 0.57);
+    text-decoration: none;
+    display: block;
+    min-width: 150px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #3498db;
+    color: #fff;
+}
+

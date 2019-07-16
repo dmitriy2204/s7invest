@@ -30,4 +30,14 @@ class Detail extends Model
         return $this->belongsToMany('App\Models\Simulator');
     }
 
+    public function status()
+    {
+        return $this->hasOne('App\Models\Status');
+    }
+
+    public function type()
+    {
+        return $this->belongsTo('App\Models\Type');
+    }
+
 }
