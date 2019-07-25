@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrdersTable extends Migration
+class CreateTakenDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,8 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('taken_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')
-                ->unsigned()
-                ->nullable();
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->integer('detail_id')
                 ->unsigned()
                 ->nullable();
@@ -31,12 +23,24 @@ class CreateOrdersTable extends Migration
                 ->on('details')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->string('name');
-            $table->string('supplier_num');
-            $table->string('producer_num');
+            $table->integer('user_id')
+                ->unsigned()
+                ->nullable();
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->integer('simulator_id')
+                ->unsigned()
+                ->nullable();
+            $table->foreign('simulator_id')
+                ->references('id')
+                ->on('simulators')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->integer('amount');
-            $table->string('comment');
-            $table->string('shop');
+            $table->string('comment')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -49,6 +53,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('taken_details');
     }
 }

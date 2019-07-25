@@ -28,9 +28,9 @@ class CreateUsersTable extends Migration
                 ->on('roles')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->tinyInteger('is_active')->default(1);
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

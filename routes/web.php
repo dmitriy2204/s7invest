@@ -5,6 +5,32 @@ Route::get('/', 'MainController@mainPage')->name('public.main');
 Route::get('/search', 'MainController@search')
     ->name('public.user.search');
 
+Route::get('/login', ['as' => 'login', 'uses' => 'AuthController@login']);
+
+Route::post('/login', 'AuthController@loginPost')
+    ->name('public.user.loginPost');
+
+Route::get('/register', 'AuthController@register')
+    ->name('public.user.register');
+
+Route::post('/register', 'AuthController@registerPost')
+    ->name('public.user.registerPost');
+
+Route::get('/logout', 'AuthController@logout')
+    ->name('public.user.logout');
+
+Route::group(['prefix' => '/lk'], function (){
+    Route::get('/{id}', 'UserController@lk')
+        ->name('public.user.lk');
+    Route::get('/{id}/taken_details', 'UserController@takenDetails')
+        ->name('public.user.takenDetails');
+});
+
+Route::group(['prefix' => '/admin'], function (){
+    Route::get('/{id}', 'UserController@admin')
+        ->name('public.admin.lk');
+});
+
 Route::group(['prefix' => '/detail'], function (){
     Route::get('/{id}', 'MainController@one')
         ->where('id', '[0-9]+')
@@ -44,6 +70,12 @@ Route::group(['prefix' => '/detail'], function (){
         ->where('id', '[0-9]+')
         ->name('public.detail.putDetail');
 
+    Route::get('/put_new', 'MainController@putNew')
+        ->name('public.detail.putNew');
+
+    Route::post('/put_new', 'MainController@putNewDetail')
+        ->name('public.detail.putNewDetail');
+
     Route::get('/order/{id}', 'MainController@order')
         ->where('id', '[0-9]+')
         ->name('public.detail.order');
@@ -52,4 +84,12 @@ Route::group(['prefix' => '/detail'], function (){
         ->where('id', '[0-9]+')
         ->name('public.detail.orderDetail');
 
+    Route::get('/order_new', 'MainController@orderNew')
+        ->name('public.detail.orderNew');
+
+    Route::post('/order_new', 'MainController@orderNewDetail')
+        ->name('public.detail.orderNewDetail');
+
+
 });
+

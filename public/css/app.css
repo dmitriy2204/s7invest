@@ -8,6 +8,8 @@ html, body {
     max-width: 1024px;
     overflow: hidden;
     margin: 0 auto;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
 }
 
 /* HEADER */
@@ -87,8 +89,27 @@ html, body {
     display: inline-block;
 }
 
+.actions-menu button {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.actions-menu button a {
+    text-decoration: none;
+}
+
 .table-responsive {
     overflow-x: scroll;
+}
+
+.menu-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.message {
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 /* REGISTRATION CARD */
@@ -114,7 +135,7 @@ h2 {
     justify-content: space-between;
 }
 
-.detail-info__item input, .take-detail__item input, .put-detail__item input, .order-detail__item input, .detail-info__item select {
+.detail-info__item input, .take-detail__item input, .put-detail__item input, .order-detail__item input, .detail-info__item select, .take-detail__item input, .take-detail__item select {
     width: 70%;
     margin: 5px 3px;
     padding: 5px 5px;
@@ -135,7 +156,7 @@ h2 {
     justify-content: space-between;
 }
 
-.take-detail, .put-detail, .order-detail {
+.take-detail, .put-detail, .order-detail, .auth, .register {
     max-width: 60%;
     margin: 100px auto 0;
 }
@@ -161,3 +182,104 @@ h2 {
     color: #fff;
 }
 
+.btn_inline {
+    display: inline;
+    padding: 10px;
+}
+
+#users_btn {
+    text-align: left;
+}
+
+
+/* PROFILE */
+
+.profile-menu ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile-menu__item {
+    display: block;
+}
+
+.profile_table {
+    display: none;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.profile_table table {
+    margin-top: 30px;
+    width: 100%;
+}
+
+
+/* AUTH && REGISTER */
+
+.auth__header, .register__header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth__form form .item, .register__form form .item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.auth__form form .item input {
+    width: 70%;
+    margin: 5px 3px;
+    padding: 5px 5px;
+}
+
+.register__form form .item input, .register__form form .item select, .item__input {
+    width: 70%;
+    padding: 5px 5px;
+}
+
+.auth__form form label {
+    width: 30%;
+}
+
+.register__form form label {
+    width: 30%;
+    margin: auto 0;
+}
+
+.auth_error {
+    text-align: center;
+    padding-bottom: 10px;
+    color: red;
+}
+
+.remember p, input {
+    display: inline-block;
+}
+
+.register__form form ul li.error .item input {
+    border: 2px solid #fb431c;
+    border-radius: 3px;
+}
+
+.form_error {
+    position: absolute;
+    bottom: -20px;
+    z-index: 10;
+    border: 1px solid #fb431c;
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: white;
+    background-color: #fb431c;
+    font-size: 0.8em;
+    box-shadow: 2px 3px 4px rgba(0,0,0,0.5);
+    display: none;
+}
+
+ul li:hover p.form_error {
+    display: block;
+}
+
+.item {
+    position: relative;
+}

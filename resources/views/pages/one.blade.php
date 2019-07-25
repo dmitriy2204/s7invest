@@ -35,7 +35,7 @@
         </div>
         <div class="detail-info__item">
             <label for="type">Тип материала</label>
-            <input type="text" id="type" value="{{ $types->where('id', $detail->type)->first()->name }}" disabled>
+            <input type="text" id="type" value="{{ $types->where('id', $detail->type)->first()->name ?? ''}}" disabled>
         </div>
         <div class="detail-info__item">
             <label for="name">Состояние</label>

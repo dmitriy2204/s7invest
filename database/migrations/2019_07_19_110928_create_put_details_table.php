@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrdersTable extends Migration
+class CreatePutDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('put_details', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')
                 ->unsigned()
@@ -23,6 +23,7 @@ class CreateOrdersTable extends Migration
                 ->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+
             $table->integer('detail_id')
                 ->unsigned()
                 ->nullable();
@@ -31,12 +32,21 @@ class CreateOrdersTable extends Migration
                 ->on('details')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->string('name');
+
             $table->string('supplier_num');
             $table->string('producer_num');
+            $table->string('serial')->nullable();
             $table->integer('amount');
-            $table->string('comment');
-            $table->string('shop');
+            $table->integer('status')
+                ->unsigned()
+                ->nullable();
+            $table->foreign('status')
+                ->references('id')
+                ->on('statuses')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->string('comment')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -49,6 +59,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('put_details');
     }
 }

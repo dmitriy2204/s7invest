@@ -24,6 +24,7 @@ class DetailCreateRequest extends FormRequest
     public function rules()
     {
         return [
+            //'user_id' => 'required',
             'name' => 'required|min:3',
             'supplier_num' => 'nullable|max:100|min:3',
             'producer_num' => 'nullable|max:100|min:3',
