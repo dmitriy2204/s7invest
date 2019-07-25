@@ -1,18 +1,18 @@
 <div>
-    <form action="{{ route('public.detail.orderDetail', ['id' => $detail->id]) }}" method="POST" class="order-detail">
+    <form action="{{ route('public.detail.orderNewDetail') }}" method="POST" class="order-detail">
         {{ csrf_field() }}
         <h2>Заказать деталь</h2>
         <div class="take-detail__item">
             <label for="name">Наименование</label>
-            <input type="text" id="name" value="{{ $detail->name }}" disabled>
+            <input type="text" id="name" name="name" value="{{ old('name') }}">
         </div>
         <div class="order-detail__item">
             <label for="supplier_num">Партийный номер поставщика</label>
-            <input type="text" id="supplier_num" value="{{ $detail->supplier_num }}" disabled>
+            <input type="text" id="supplier_num" name="supplier_num" value="{{ old('supplier_num') }}">
         </div>
         <div class="order-detail__item">
             <label for="producer_num">Партийный номер производителя</label>
-            <input type="text" id="producer_num" value="{{ $detail->producer_num }}" disabled>
+            <input type="text" id="producer_num" name="producer_num" value="{{ old('producer_num') }}">
         </div>
         <div class="order-detail__item">
             <label for="amount">Количество</label>
@@ -27,7 +27,7 @@
             <input type="text" id="shop" name="shop" value="{{ old('shop') }}">
         </div>
         <div class="buttons">
-            <a class="btn" href="{{ route('public.detail.one', ['id' => $detail->id]) }}">Назад</a>
+            <a class="btn" href="{{ route('public.main') }}">Назад</a>
             <button type="submit" class="btn btn-primary">Заказать деталь</button>
         </div>
     </form>

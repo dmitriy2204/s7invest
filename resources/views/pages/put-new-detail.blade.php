@@ -1,22 +1,27 @@
 <div>
-    <form action="{{ route('public.detail.putDetail', ['id' => $detail->id]) }}" method="POST" class="put-detail">
+    <form action="{{ route('public.detail.putNewDetail') }}" method="POST" class="put-detail">
         {{ csrf_field() }}
         <h2>Положить на склад</h2>
+        @if (\Session::has('message'))
+            <p class="message">
+                {{ \Session::get('message') }}
+            </p>
+        @endif
         <div class="put-detail__item">
             <label for="name">Наименование</label>
-            <input type="text" id="name" value = "{{ $detail->name }}" name="name" disabled>
+            <input type="text" id="name" value = "{{ old('name') }}" name="name">
         </div>
         <div class="put-detail__item">
             <label for="supplier_num">Партийный номер поставщика</label>
-            <input type="text" id="supplier_num" value = "{{ $detail->supplier_num }}" name="supplier_num" disabled>
+            <input type="text" id="supplier_num" value = "{{ old('supplier_num') }}" name="supplier_num">
         </div>
         <div class="put-detail__item">
             <label for="producer_num">Партийный номер изготовителя</label>
-            <input type="text" id="producer_num" value = "{{ $detail->producer_num }}" name="producer_num" disabled>
+            <input type="text" id="producer_num" value = "{{ old('producer_num') }}" name="producer_num">
         </div>
         <div class="put-detail__item">
             <label for="serial">Серийный номер</label>
-            <input type="text" id="serial" value = "{{ $detail->serial }}" name="serial">
+            <input type="text" id="serial" name="serial">
         </div>
         <div class="put-detail__item">
             <label for="amount">Количество</label>

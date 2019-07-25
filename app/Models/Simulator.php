@@ -14,4 +14,14 @@ class Simulator extends Model
     {
         return $this->hasMany('App\Models\Detail');
     }
+
+    public function PutDetails()
+    {
+        return $this->hasMany('App\Models\PutDetail');
+    }
+
+    public function TakenDetails()
+    {
+        return $this->hasMany('App\Models\TakenDetail');
+    }
 }

@@ -8,6 +8,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Status;
 use App\Models\Type;
+use App\Models\Role;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -46,6 +47,12 @@ class AppServiceProvider extends ServiceProvider
             $types = Type::all();
 
             $view->with('types', $types);
+        });
+
+        View::composer('*', function ($view) {
+            $roles = Role::all();
+
+            $view->with('roles', $roles);
         });
     }
 }

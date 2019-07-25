@@ -40,4 +40,18 @@ class Detail extends Model
         return $this->belongsTo('App\Models\Type');
     }
 
+    public function putDetails()
+    {
+        return $this->hasMany('AApp\Models\PutDetail');
+    }
+
+    public function takenDetails()
+    {
+        return $this->hasMany('AApp\Models\TakenDetail');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany('AApp\Models\Order');
+    }
 }

@@ -10,13 +10,10 @@
 
         <div class="greeting boxed">
             <div class="wrapper">
-                @if (session('message'))
-                    <h5>{{ session('message') }}</h5>
-                @elseif (isset($activeUser->profile->name))
-                    <h5>{{ $activeUser->profile->name }}</h5>
-                    <a href="/user/logout">Выход</a>
-                @else
-                    <h5>Добро пожаловать!</h5>
+                @if (Auth::check())
+                    <h5>Вошли как: <a href="{{ Auth::user()->role_id == 1 ? route('public.admin.lk', ['id' => Auth::user()->id]) : route('public.user.lk', ['id' => Auth::user()->id]) }}">{{ Auth::user()->fname }}</a>
+                        || <a href="{{ route('public.user.logout') }}">Выход</a>
+                    </h5>
                 @endif
             </div>
         </div>
